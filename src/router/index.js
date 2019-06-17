@@ -10,6 +10,7 @@ import BreadDetail from '../components/BreadDetail'
 import DetailHome from '../components/detail/DetailHome'
 import DetailList from '../components/detail/DetailList'
 import DetailWork from '../components/detail/DetailWork'
+import ManageCenter from '../components/detail/ManageCenter'
 
 
 
@@ -42,6 +43,7 @@ export default new Router({
         {path: 'communityActivity', name: 'CommunityActivity', component: CommunityActivity},
         {path: 'publishProject', name: 'PublishProject', component: PublishProject},
         {path: 'personalCenter', name: 'PersonalCenter', component: PersonalCenter},
+        {path: 'manageCenter', name:'ManageCenter', component: ManageCenter},
       ],
     },
 

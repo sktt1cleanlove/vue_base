@@ -1,7 +1,10 @@
 
 const state = {
     title:'cart moudle',
+    
 }
+
+
 
 const cartMoudle = {
     state,
