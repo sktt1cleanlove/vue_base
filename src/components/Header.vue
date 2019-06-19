@@ -5,7 +5,7 @@
     <el-menu :default-active="activeIndex" class="el-menu-demo"  mode="horizontal" @select="handleSelect">
     <el-menu-item index="1"><router-link to="/">首页中心</router-link></el-menu-item>
     <el-menu-item index="2"><router-link to="/handle">处理中心</router-link></el-menu-item>
-    <el-menu-item index="3"><router-link to="/handle">订单管理</router-link></el-menu-item>
+    <el-menu-item index="3"><router-link to="/orderManage">订单管理</router-link></el-menu-item>
     <el-submenu index="4">
       <template slot="title">我的工作台</template>
         <el-menu-item index="4-1"><router-link to="/handle">选项1</router-link></el-menu-item>

@@ -11,8 +11,11 @@ import DetailHome from '../components/detail/DetailHome'
 import DetailList from '../components/detail/DetailList'
 import DetailWork from '../components/detail/DetailWork'
 import ManageCenter from '../components/detail/ManageCenter'
-
-
+import OrderManage from '@/components/OrderManage'
+import OrderHome from '@/components/order/OrderHome'
+import OrderManager from '@/components/order/OrderManager'
+import OrderDetail from '@/components/order/OrderDetail'
+import OrderList from '@/components/order/OrderList'
 
 Vue.use(Router)
 
@@ -45,6 +48,16 @@ export default new Router({
         {path: 'personalCenter', name: 'PersonalCenter', component: PersonalCenter},
         {path: 'manageCenter', name:'ManageCenter', component: ManageCenter},
       ],
+    },
+    //----------------- orderManage  -----------------------------
+    {
+      path:'/orderManage', name:'OrderManage', component: OrderManage,
+      children:[
+        {path:'orderHome', name:'OrderHome', component: OrderHome},
+        {path:'orderManager', name:'OrderManager', component: OrderManager},
+        {path:'orderDetail', name:'OrderDetail', component: OrderDetail},
+        {path:'orderList', name:'OrderList', component:OrderList},
+      ]
     },
 
   ]

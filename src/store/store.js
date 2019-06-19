@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import CartMoudle from '@/store/cart/Cart'
+import OrderModule from '@/store/order/Order'
+import VideoApi from '@/api/videoApi'
 
 Vue.use(Vuex)
 
@@ -17,6 +19,7 @@ const state = {
         {id:3, name:'水果', price:2},
         {id:4, name:'书籍', price:8},
     ],
+    roomInfo:{},
 }
 
 const getters = {
@@ -26,9 +29,33 @@ const getters = {
 
 }
 
+//所有需要修改state里的数据都是在mutations中完成
 const mutations = {
     increment(state){
         state.testData.count++;
+    },
+    del(state, param){
+        state.cartLis
+        let index;
+        for(let i = 0; i< state.cartList.lenth; i++){
+            if(cartList[i].id === param.id){
+                index = i;
+                break;
+            }
+        }
+        state.cartList.splice(index,1);
+    },
+
+    setCartList(state, param){
+        state.roomInfo = param.roomInfo;
+    },
+}
+
+const actions = {
+    async getCartServerData(context, id){
+        const res =  await VideoApi.getVideoInfo(id);
+        context.commit('setCartList', {roomInfo:res.data.res});
+
     }
 }
 
@@ -36,13 +63,14 @@ const mutations = {
 
 const store = new Vuex.Store({
     modules:{
-        cart:CartMoudle,
+        cart: CartMoudle,
+        order: OrderModule,
     },
     state,
     getters,
     mutations,
+    actions,
 })
-
 
 
 export default store;

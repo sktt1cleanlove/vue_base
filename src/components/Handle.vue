@@ -4,7 +4,6 @@
             <el-aside width="200px">
                 <el-row class="tac">
                     <el-col :span="12">
-                        <h5>默认颜色</h5>
                         <el-menu :default-active="this.$router.path" router mode="horizontal">
                         <el-menu-item v-for="(item,i) in navList" :key="i" :index="item.name">
                             {{ item.navItem }}
