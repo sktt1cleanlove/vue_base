@@ -3,6 +3,8 @@ import Vuex from 'vuex'
 import CartMoudle from '@/store/cart/Cart'
 import OrderModule from '@/store/order/Order'
 import VideoApi from '@/api/videoApi'
+import ModuleA from '@/store/namespace/ModuleA'
+import ModuleB from '@/store/namespace/ModuleB'
 
 Vue.use(Vuex)
 
@@ -56,13 +58,9 @@ const mutations = {
     },
 
     //map修改map
-    setCartList(state){
+    setCartList(state, param){
         console.log('cartList')
-        state.cartList.map((cart, index, arr) =>{
-            cart.id = "编号："+cart.id;
-            cart.name = "名称："+cart.name;
-            cart.price += 100;
-        })
+       state.cartList = param.roomInfo;
     },
 }
 
@@ -80,8 +78,6 @@ const actions = {
     getTestMapAction2(context, id){
         console.log("test mapAction2:" +id);
     }
-
-
 }
 
 
@@ -90,6 +86,8 @@ const store = new Vuex.Store({
     modules:{
         cart: CartMoudle,
         order: OrderModule,
+        moduleA: ModuleA,
+        moduleB: ModuleB,
     },
     state,
     getters,

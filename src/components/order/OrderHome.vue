@@ -1,9 +1,9 @@
 <template>
     <div>
-        {{status}}
+        <!-- {{status}}
         {{orderList}}
         {{roomInfo}}
-         {{count}}
+         {{count}} -->
         {{cartList}}
 
         
@@ -58,7 +58,7 @@ export default {
 
     created(){
         //调用actions
-        //this.$store.dispatch('getCartServerData', 175);
+        this.$store.dispatch('getCartServerData', 175);
     },
     
 }
