@@ -9,6 +9,7 @@ Vue.use(Vuex)
 //先加载
 const state = {
     // 测试数据
+    count: 1,
     testData:{
         count:2,
         title:'测试Vuex',
@@ -46,8 +47,22 @@ const mutations = {
         state.cartList.splice(index,1);
     },
 
-    setCartList(state, param){
-        state.roomInfo = param.roomInfo;
+    setCount1(state){
+        state.count++;
+    },
+
+    setCount2(state, id){
+        state.count +=id;
+    },
+
+    //map修改map
+    setCartList(state){
+        console.log('cartList')
+        state.cartList.map((cart, index, arr) =>{
+            cart.id = "编号："+cart.id;
+            cart.name = "名称："+cart.name;
+            cart.price += 100;
+        })
     },
 }
 
@@ -55,8 +70,18 @@ const actions = {
     async getCartServerData(context, id){
         const res =  await VideoApi.getVideoInfo(id);
         context.commit('setCartList', {roomInfo:res.data.res});
+    },
 
+    //
+    getTestMapAction1(context){
+        console.log("test mapAction1:");
+    },
+
+    getTestMapAction2(context, id){
+        console.log("test mapAction2:" +id);
     }
+
+
 }
 
 
