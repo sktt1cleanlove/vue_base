@@ -15,7 +15,7 @@ axios.interceptors.response.use((response) =>{
     console.log(JSON.stringify(response))
     if(data.code === 0){
         Message.error('数据被拦截')
-        return Promise.reject('请求数据。。。'); 
+        //return Promise.reject('请求数据。。。'); 
     }
     return response;
 }, (err) =>{

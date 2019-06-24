@@ -67,6 +67,8 @@ const mutations = {
 const actions = {
     async getCartServerData(context, id){
         const res =  await VideoApi.getVideoInfo(id);
+        const paper = await VideoApi.getPaperInfo();
+        console.log(paper)
         context.commit('setCartList', {roomInfo:res.data.res});
     },
 

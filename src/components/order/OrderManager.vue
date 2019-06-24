@@ -7,6 +7,17 @@
          <!-- {{bookList}} -->
          <!-- {{booksList}} -->
          {{bookLists}}
+
+
+         <el-pagination
+            :background= true
+            :page-size="2"
+            :pager-count="5"
+            layout="prev, pager, next"
+            :total="10"
+            @current-change="getCurrentPage">
+           
+        </el-pagination>
     </div>
 </template>
 
@@ -22,7 +33,6 @@ export default {
                 let bs =bookList.filter((b, index, arr) => 
                     b.price > 2.0
                 )
-                //
                 console.log(bs)
                 return ;
             },
@@ -58,6 +68,12 @@ export default {
     },
     methods:{
         ...mapMutations({changeTxt1: 'moduleA/changeTxt',changeTxt2: 'moduleB/changeTxt'}),
+        getCurrentPage(page){
+            console.log(page)
+        },
+        changeTxt11(){
+            this.changeTxt1(param);
+        }
     },
 }
 </script>
